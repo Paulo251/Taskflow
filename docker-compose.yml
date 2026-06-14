@@ -24,6 +24,17 @@ services:
       DATABASE_URL: postgresql://taskflow:taskflow@db/taskflow_development
       RAILS_ENV: development
       BUNDLE_PATH: /rails/vendor/bundle
-
+  css:
+    build: .
+    command: bundle exec rails tailwindcss:watch[always]
+    working_dir: /rails
+    user: "${MY_UID}:${GID}"
+    volumes:
+      - .:/rails
+    depends_on:
+      - app
+    environment:
+      RAILS_ENV: development
+      BUNDLE_PATH: /rails/vendor/bundle
 volumes:
   postgres_data:

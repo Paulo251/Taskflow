@@ -16,3 +16,11 @@ COPY Gemfile ./
 COPY . .
 
 EXPOSE 3000
+
+ARG UID=1000
+ARG GID=1000
+
+RUN groupadd -g $GID appgroup && \
+  useradd -u $UID -g appgroup -m appuser
+
+USER appuser

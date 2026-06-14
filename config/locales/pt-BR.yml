@@ -1,0 +1,6 @@
+pt-BR:
+  helpers:
+    submit:
+      task:
+        create: "Criar task"
+        update: "Salvar alterações"
